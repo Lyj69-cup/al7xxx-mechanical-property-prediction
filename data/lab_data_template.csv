@@ -1,2 +1,2 @@
-﻿sample_id,Zn,Mg,Cu,Zr,Mn,Cr,Fe,Si,Ti,Al,homogenization_temp,homogenization_time,solution_temp,solution_time,quenching_rate,aging_temp,aging_time,pre_aging_temp,pre_aging_time,deformation_ratio,yield_strength,tensile_strength,elongation
-example_001,8.0,2.2,1.5,0.1,0.15,0.18,0.15,0.1,0.05,87.57,470,24,475,1,50,120,24,0,0,0,550,600,12.0
+﻿Zn,Mg,Cu,Mn,Cr,Zr,Fe,Si,Ti,Ni,Sc,Sr,Y,Er,Li,Ag,V,solution_temp_C,solution_time_h,aging_temp_C,aging_time_h,pre_deformation_pct,temper,product_form,special_process
+5.6,2.5,1.6,0,0.2,0,0.2,0.1,0.05,0,0,0,0,0,0,0,0,470,1,120,24,0,peak-aged (T6),extrusion,EXAMPLE row - replace with your own alloy

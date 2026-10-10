@@ -1,141 +1,129 @@
-# 7xxx系铝合金力学性能预测模型
+# Multi-Model Ensemble Learning for Mechanical Property Prediction of 7xxx-Series Aluminum Alloys
 
-基于机器学习的7xxx系铝合金屈服强度、抗拉强度及延伸率预测模型。
+A fully traceable, leakage-free machine-learning framework that maps the **composition and heat-treatment** of 7xxx-series (Al–Zn–Mg–Cu) aluminum alloys to three mechanical properties: **yield strength (YS)**, **ultimate tensile strength (UTS)**, and **elongation (EL)**. Every record in the dataset can be traced, row by row, to a published open dataset or a peer-reviewed paper (DOI/URL). No interpolated, imputed, or synthetic records are used.
 
-## 项目简介
+## Why this repository
 
-本项目构建了一个融合多模型的机器学习框架，用于预测7xxx系铝合金的力学性能。通过物理冶金驱动的特征工程和6种基模型（随机森林、ExtraTrees、XGBoost、LightGBM、梯度提升树、支持向量回归）的超级融合，实现了对成分-工艺-性能映射关系的精准建模。
+Most published ML property models (i) mix records from the same source across training and test folds (data leakage that inflates accuracy), and (ii) rest on datasets that cannot be independently verified. This repository addresses both: it provides a clean, 100% traceable dataset and a strict evaluation protocol that reports both the same-distribution (random fold) performance and the harder, cross-study (leave-one-source-out) transfer performance — including the direction in which transfer fails.
 
-## 性能指标
+## Dataset
 
-5折交叉验证结果：
+- **237 records from 6 independent sources**, each carrying a citation, DOI (where available), and URL.
+- Inputs: 17 composition elements + 5 numeric heat-treatment parameters + 9 one-hot temper/product-form indicators + 13 physics-derived features = **44 model inputs**.
+- Targets: YS (MPa), UTS (MPa), EL (%).
 
-| 目标 | R² | RMSE | MAE |
-|------|-----|------|-----|
-| 屈服强度 | 0.908 | 43.1 MPa | 28.5 MPa |
-| 抗拉强度 | 0.912 | 38.7 MPa | 25.3 MPa |
-| 延伸率 | 0.775 | 1.54 % | 1.02 % |
-| 平均 | 0.865 | - | - |
+| Source | Records | Reference | DOI / URL | Licence |
+|---|---|---|---|---|
+| BHAT2023 | 215 | Bhat, N.; Barnard, A.; Birbilis, N. *Aluminium alloy dataset for supervised learning.* Mendeley Data, V1, 2023 | [10.17632/b6br4yk6r3.1](https://data.mendeley.com/datasets/b6br4yk6r3/1) | CC BY 4.0 |
+| XU2015 | 2 | Tan, C.; Xu, X.-J.; et al. *Chin. J. Nonferrous Met.* 2015, 25(11), 3019–3025 | [PDF](http://www.ysxbcn.com/down/2015/11_cn/08-p3019-33029.pdf) | © authors |
+| XU2016 | 2 | Zhang, X.-L.; Xu, X.-J.; et al. *Chin. J. Nonferrous Met.* 2016, 26(3), 507–515 | [PDF](http://www.ysxbcn.com/down/2016/03_cn/04-p0507-33268.pdf) | © authors |
+| XU2018 | 2 | Zhang, C.; Xu, X.-J.; et al. *Mater. Mech. Eng.* 2018, 42(8), 24–28 | [10.11973/jxgccl201808005](https://jxgccl.mat-test.com/cn/article/pdf/preview/10.11973/jxgccl201808005.pdf) | © authors |
+| LI2020 | 12 | Li, J.; et al. *Communications Materials* 2020, 1, 73 | [10.1038/s43246-020-00074-2](https://www.nature.com/articles/s43246-020-00074-2) | CC BY 4.0 |
+| PMC9571267 | 4 | Zhang, W.; et al. *Materials* 2022, 15, 6955 | [PMC9571267](https://pmc.ncbi.nlm.nih.gov/articles/PMC9571267/) | CC BY 4.0 |
 
-## 数据集
+The 215 Bhat records are the 7xxx subset (objective screen Zn ≥ 3 wt.% and Zn > Cu) of 1154 aluminium records; the six Xu-group records document pre-recovery, multi-stage solution, T652 and pre-deformation processing of ultra-high-Zn alloys; the 12 Li-2020 records are iteratively designed cast alloys (UTS only); the four PMC records cover high/medium/cryogenic-temperature forging.
 
-- 样本量：300条
-- 来源：46篇公开文献（含期刊论文、专利、手册）
-- 特征：10个合金元素成分 + 10个热处理工艺参数 + 15个衍生特征 = 35个特征
-- 目标：屈服强度、抗拉强度、延伸率
+## Method
 
-数据集文件：`data/al7xxx_real_dataset_v2.csv`
+- **Base models:** Dummy, Linear, Ridge, Decision Tree (baselines); Random Forest, ExtraTrees, XGBoost, LightGBM, Gradient Boosting, SVR.
+- **Fusion:** leakage-free **equal-weight average** of the six non-linear base models (RF, ET, XGB, LGB, GBRT, SVR). No data-dependent weights or stacking meta-learner.
+- **Validation:**
+  - Random 5-fold CV, averaged over five seeds — same-distribution benchmark.
+  - Leave-one-source-out (LOSO), run in **both directions**: (engineering) train on the large Bhat library and predict each independent study; (reverse) hold Bhat out and extrapolate from the 22 detailed-process records.
+- All scaling is fit **inside each fold**; hyperparameters are fixed in advance and never tuned on the test fold, so there is no target leakage.
 
-## 项目结构
+## Results (honest reporting)
+
+Random 5-fold CV (R², mean over five seeds):
+
+| Model | YS | UTS | EL |
+|---|---|---|---|
+| ExtraTrees (best single) | **0.917** | **0.898** | 0.620 |
+| XGBoost | 0.900 | 0.873 | **0.669** |
+| Fusion | 0.894 | 0.874 | 0.639 |
+
+LOSO cross-study transfer (pooled Fusion):
+
+| Direction | YS | UTS | EL |
+|---|---|---|---|
+| Engineering: Bhat → independent studies | 0.954 (n=8) | 0.803 (n=22) | 0.619 (n=10) |
+| Reverse: 22 records → Bhat (extrapolation) | −0.867 | 0.264 | −1.518 |
+
+Two deliberately reported, non-flattering findings: the physics-derived features add only a small gain over raw features on ExtraTrees (**+0.0054 R²**), and the equal-weight average does **not** beat the best single model (ET) under random CV (**−0.0045 R²**). Elongation is consistently the hardest target, and R² is unreliable for the very small per-source groups (n = 2), where MAE/RMSE should be read instead.
+
+## Project structure
 
 ```
 ├── data/
-│   └── al7xxx_real_dataset_v2.csv    # 300条数据集
+│   ├── al7xxx_dataset_v4.csv        # 237-record traceable dataset (main file)
+│   ├── bhat_al_data.csv             # raw Bhat open dataset (1154 records)
+│   ├── xu_group_extracted.csv       # Xu-group extracted records
+│   ├── li2020_extracted.csv         # Li 2020 extracted records
+│   ├── pmc9571267_extracted.csv     # PMC open-access records
+│   └── lab_data_template.csv        # template for your own alloys
 ├── src/
-│   ├── train_final.py                 # 训练主脚本（5折交叉验证+多模型融合）
-│   ├── train_and_save_model.py        # 用全部数据训练并保存模型
-│   ├── validate_with_lab_data.py      # 用实验数据验证模型
-│   ├── predict.py                     # 单样本预测
-│   └── generate_figures.py            # 生成论文图表
+│   ├── build_v4.py                  # rebuild the dataset from raw sources
+│   ├── recompute_v4.py              # full CV + LOSO analysis (main engine)
+│   ├── family_perm_v4.py            # feature-family permutation importance
+│   ├── make_v4_figs.py              # render all figures
+│   ├── gen_supplementary_v4.py      # build Supplementary Table S1
+│   └── predict_v4.py                # predict new alloys (batch / interactive)
 ├── results/
-│   ├── final_results.json             # 各模型评估指标
-│   ├── final_feature_importance.csv   # 特征重要性排名
-│   ├── final_predictions.csv          # 300条样本真实值vs预测值
-│   ├── Fig1_feature_importance.png    # 图1：特征重要性柱状图
-│   └── Fig2_prediction_scatter.png    # 图2：预测值vs真实值散点图
-├── requirements.txt                   # Python依赖
+│   ├── Fig1_parity_random.png       # predicted vs measured (3 panels)
+│   ├── Fig2_random_vs_LOSO.png      # random-fold vs cross-study R²
+│   ├── Fig3_per_source_MAE.png      # per-source transfer error
+│   ├── Fig4_feature_importance.png  # ExtraTrees feature importance
+│   ├── recompute_v4_results.json    # all metrics
+│   ├── family_permutation_v4.json   # feature-family permutation results
+│   ├── oof_random_v4.csv            # per-sample out-of-fold predictions
+│   └── oof_loso_v4.csv
+├── supplementary/
+│   └── Supplementary_Table_S1_Data_Sources_v4.xlsx
+├── requirements.txt
+├── LICENSE
 └── README.md
 ```
 
-## 环境要求
-
-- Python 3.9+
-- 依赖：`pip install -r requirements.txt`
-
-## 使用方法
-
-### 1. 训练模型（5折交叉验证）
+## Quick start
 
 ```bash
-python src/train_final.py
+pip install -r requirements.txt
+
+# 1. Reproduce the full analysis (random CV + bidirectional LOSO)
+python src/recompute_v4.py
+
+# 2. Render the four figures from the out-of-fold predictions
+python src/make_v4_figs.py
+
+# 3. Feature-family permutation importance
+python src/family_perm_v4.py
+
+# 4. Predict your own alloys from a CSV
+python src/predict_v4.py --input my_alloys.csv --output predictions.csv
+#    or enter one alloy interactively
+python src/predict_v4.py
+
+# 5. (Optional) Rebuild the dataset and the supplementary table
+python src/build_v4.py
+python src/gen_supplementary_v4.py
 ```
 
-输出各模型的R²、RMSE、MAE对比，以及特征重要性排名。
+The input CSV for prediction uses measured composition in wt.% and heat-treatment parameters; see `data/lab_data_template.csv`. Missing columns are filled automatically with safe defaults.
 
-### 2. 保存最终模型
+## Citation
 
-```bash
-python src/train_and_save_model.py
-```
-
-用全部300条数据训练，保存为`final_model.pkl`。
-
-### 3. 用自己的实验数据验证
-
-```bash
-python src/validate_with_lab_data.py
-```
-
-将你的数据整理成CSV格式（参考`data/lab_data_template.csv`），脚本会自动加载模型并生成预测对比结果。
-
-### 4. 单样本预测
-
-```bash
-python src/predict.py
-```
-
-输入合金成分和热处理工艺参数，输出屈服强度、抗拉强度、延伸率预测值。
-
-## 特征工程
-
-### 原始特征（20个）
-- 成分（10个）：Zn, Mg, Cu, Zr, Mn, Cr, Fe, Si, Ti, Al
-- 工艺（10个）：均匀化温度/时间、固溶温度/时间、淬火速率、时效温度/时间、预时效温度/时间、变形率
-
-### 衍生特征（15个）
-- 成分衍生：Zn/Mg比、Zn+Mg+Cu总量、Mg/Cu比、Zr+Mn+Cr总量、Fe+Si总量、Zn×Mg乘积
-- 工艺衍生：总时效时间、时效温度×时间、固溶温度×时间、是否预时效、是否变形、时效时间对数
-- 交互特征：Zn×时效温度、Mg×固溶温度、合金总量×时效温度
-
-## 模型融合策略
-
-1. 6种基模型独立训练
-2. 简单平均融合
-3. 分目标加权融合（按各模型R²加权）
-4. Stacking融合（Ridge元学习器）
-5. Stacking融合（BayesianRidge元学习器）
-6. 超级融合：以上4种融合结果的平均
-
-## 消融实验
-
-| 配置 | 平均R² |
-|------|--------|
-| 原始特征 + 单模型(ET) | 0.815 |
-| + 衍生特征 + 单模型 | 0.856 |
-| + 简单平均融合 | 0.864 |
-| 完整超级融合 | 0.865 |
-
-## 数据来源
-
-所有300条数据均来自公开文献，每条数据标注了来源（source列）和详细出处（source_detail列）。主要来源包括：
-- MDPI Metals, Materials, Materials Science and Engineering A等期刊
-- 中国有色金属学报、材料研究学报、稀有金属材料与工程等中文期刊
-- 专利文献
-- ASM手册、国家标准
-
-## 引用
-
-如果使用本项目的数据或代码，请引用：
+If you use this dataset or code, please cite the accompanying paper:
 
 ```
-@article{your_paper,
-  title={Machine Learning Prediction of Mechanical Properties of 7xxx Series Aluminum Alloys Based on Multi-Model Fusion},
-  author={Your Name},
-  journal={Materials},
-  year={2026}
-}
+Liu, Y.; Liu, C.; Zhu, L.; Xu, X. Multi-Model Ensemble Learning for Mechanical
+Property Prediction of 7xxx-Series Aluminum Alloys. Journal of Materials
+Engineering and Performance (manuscript JMEP-26-09-51934), 2026.
 ```
 
-## 许可证
+## Acknowledgements and data rights
 
-MIT License
+The Bhat, Li-2020 and PMC datasets are redistributed under **CC BY 4.0**; please cite the original works. The Chinese-language Xu-group papers remain the copyright of their respective publishers and are linked (not reproduced) here, with only the tabulated numerical records transcribed for analysis.
+
+## License
+
+Code released under the [MIT License](LICENSE).

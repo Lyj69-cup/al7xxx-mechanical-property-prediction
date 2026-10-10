@@ -1,0 +1,44 @@
+{
+  "Major solutes (Zn/Mg/Cu)": {
+    "dMAE_YS": 47.669,
+    "dMAE_UTS": 44.722,
+    "dMAE_EL": 0.866,
+    "dMAE_mean": 31.086
+  },
+  "Temper family": {
+    "dMAE_YS": 41.537,
+    "dMAE_UTS": 36.062,
+    "dMAE_EL": 1.325,
+    "dMAE_mean": 26.308
+  },
+  "Microalloying (Zr/Mn/Cr/Ti)": {
+    "dMAE_YS": 7.832,
+    "dMAE_UTS": 7.652,
+    "dMAE_EL": 0.814,
+    "dMAE_mean": 5.432
+  },
+  "Fe/Si impurities": {
+    "dMAE_YS": 3.439,
+    "dMAE_UTS": 3.587,
+    "dMAE_EL": 0.409,
+    "dMAE_mean": 2.478
+  },
+  "Other solutes": {
+    "dMAE_YS": 1.098,
+    "dMAE_UTS": 1.357,
+    "dMAE_EL": 0.028,
+    "dMAE_mean": 0.828
+  },
+  "Processing (numeric)": {
+    "dMAE_YS": 0.361,
+    "dMAE_UTS": 0.648,
+    "dMAE_EL": 0.005,
+    "dMAE_mean": 0.338
+  },
+  "Product form": {
+    "dMAE_YS": 0.053,
+    "dMAE_UTS": 0.166,
+    "dMAE_EL": 0.013,
+    "dMAE_mean": 0.077
+  }
+}
