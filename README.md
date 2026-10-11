@@ -29,9 +29,10 @@ Two later external challenges (not used for fitting) are included: Yin et al., 2
 
 ## Method
 
-- Inputs: chemistry plus explicit heat-treatment stages (solution/quench/aging temperatures and times, multi-stage steps, pre-retrogression where reported) and physical interaction descriptors.
+- Model inputs: the archival and primary cohorts use 32 raw inputs (18 chemistry fields, five numeric processing fields, nine categorical indicators), expanded to 45 inputs by 13 deterministic descriptors; a matched reported-state sensitivity adds eight documented fields (53 inputs). The journal compilation uses 22 composition inputs, or 27 after five deterministic composition descriptors.
+- Process context vs. inputs: ordered solution/aging stages, multi-step and RRA sequences and quench conditions are preserved in the provenance ledgers; they are not all independent numeric columns. Flat temperature/time fields encode the final explicitly stated hold, and a dimensionless Kelvin-based exposure proxy (log-sum-exp over known positive aging holds) summarizes aging exposure. Quench conditions are not a separate set of numeric model inputs and are not claimed to be fully modeled.
 - Resampling: chemistry-group and primary-source-group separation, nested outer/inner splits, and leave-one-primary-source-out evaluation; standardization and any data-dependent step are fitted inside each training fold.
-- Models: ten fixed regressors (linear, ridge, kNN, SVR, RF, ExtraTrees, GBRT, AdaBoost, XGBoost, LightGBM) with a priori hyperparameters; the reported fusion is an equal-weight mean of RF, ExtraTrees, XGBoost, LightGBM, GBRT and SVR. No adaptive weights or stacking are fitted on the test fold.
+- Models: a training-mean baseline, ordinary linear regression, ridge regression, a single decision tree, random forest, ExtraTrees, XGBoost, LightGBM, gradient boosting and radial-basis support vector regression. The fixed six-model average combines RF, ET, XGB, LGB, GBRT and SVR with equal weights. The historical selection of the fixed settings is undocumented; a separate nested analysis evaluates representation and hyperparameter selection using outer-training data only. No adaptive weights or stacking are fitted on the test fold.
 - Interpretation: normalized squared-error-reduction importance with grouped permutation, plus paired model comparisons, residual strata and applicability-domain summaries.
 
 ## Reproduce
@@ -49,7 +50,7 @@ python src/reproduce_final.py
 python src/reproduce_final.py --all
 ```
 
-The runner regenerates the scientific figures from the result CSVs into `figures/`. Reported metrics use unrounded prediction archives; heavy recomputation is seeded and deterministic.
+The runner regenerates the scientific figures from the result CSVs into `figures/`. Reported metrics use unrounded prediction archives. ET and nested results reproduce to numerical precision; XGBoost can show platform-dependent prediction differences (up to 23.05 MPa for YS; see Supplementary Table S2), so bit-identical cross-platform refitting is not promised.
 
 ## Evidence and provenance
 
@@ -68,5 +69,6 @@ The runner regenerates the scientific figures from the result CSVs into `figures
 ## Versioned snapshots
 
 - Baseline development snapshot: tag `v0.9.0`, commit `d742856f90dce2435b2fe4e2499bd2d87dacb6c2`.
-- Current data/code release: tag `v1.0.0` (see GitHub Releases for the fixed archive and SHA-256 manifest).
-- Released under the MIT License.
+- Cited baseline data/code release: tag `v1.0.0`, commit `31419e74f449230983e062a60491d1c379604544` (see GitHub Releases for the fixed archive and SHA-256 manifest).
+- README-corrected release: tag `v1.0.1` (see GitHub Releases); corrects the README model list, input description, licensing and recomputation text. The v1.0.0 tag and commit are not moved.
+- Analysis code is released under the MIT License; third-party data retain their source licenses.
