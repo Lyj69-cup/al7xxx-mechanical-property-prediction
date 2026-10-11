@@ -2,7 +2,7 @@
 
 This repository contains the **data, code, numerical results, source/provenance ledgers and reproduction instructions** that support a machine-learning study of yield strength (YS), ultimate tensile strength (UTS) and elongation (EL) for 7xxx (Al–Zn–Mg–Cu) aluminum alloys.
 
-It is published to let editors, reviewers and readers **verify that the data are real, traceable and reproducible**. It does **not** contain the manuscript text, the response to reviewers, the cover letter, or the final publication-ready figures; those are supplied through the journal. The scientific figures can be regenerated from the result tables with the plotting scripts in `src/` (they write to a `figures/` folder when run).
+It lets editors, reviewers and readers audit the recorded source evidence, validation partitions and numerical results. Evidence differs by cohort: primary-article table/text summaries are directly checked, whereas Bhat-derived entries lack original measurement/specimen identities and record-specific upstream extraction types, and the journal compilation supplies citation-level provenance. It does not contain the manuscript text, response to reviewers, cover letter or final publication-ready figures; those are supplied through the journal. The scientific figures can be regenerated from the result tables with the plotting scripts in `src/`.
 
 ## Repository layout
 
@@ -45,12 +45,16 @@ python -m pip install -r requirements.txt
 # Check that every distributed file is present and byte-identical (read-only)
 python src/verify_delivery.py
 
-# Validate the committed numerical ledgers, or recompute everything from scratch
+# Validate the committed numerical ledgers in a temporary copy (no refitting)
 python src/reproduce_final.py
-python src/reproduce_final.py --all
+
+# Refit all analyses in a new directory outside this repository
+python src/reproduce_final.py --all --out ../JMEP_recomputed
 ```
 
-The runner regenerates the scientific figures from the result CSVs into `figures/`. Reported metrics use unrounded prediction archives. ET and nested results reproduce to numerical precision; XGBoost can show platform-dependent prediction differences (up to 23.05 MPa for YS; see Supplementary Table S2), so bit-identical cross-platform refitting is not promised.
+The default command audits the frozen numerical ledgers in a temporary copy and does not change the distributed files. The `--all` command refits the analyses and regenerates scientific figures into `figures/` inside the requested output directory; that directory must not already exist. Reported metrics use unrounded prediction archives. ET and nested results reproduce to numerical precision in the documented platform check; XGBoost can show platform-dependent prediction differences (up to 23.05 MPa for YS; see Supplementary Table S2), so bit-identical cross-platform refitting is not promised.
+
+`SHA256SUMS.txt` covers every distributed file except the manifest itself. `.gitattributes` disables automatic line-ending conversion so Git checkouts and release archives preserve the bytes used by the manifest. Run `python src/verify_delivery.py` before and after the default numerical audit. When repository files change, regenerate the manifest before finalizing the release.
 
 ## Evidence and provenance
 
@@ -63,12 +67,12 @@ The runner regenerates the scientific figures from the result CSVs into `figures
 
 - The 98-record cohort is an independent transcription for verification from the cited primary articles; the article full texts are not redistributed.
 - The 135-record compilation comes from a CC BY 4.0 release; preserve its original citation.
-- Bhat et al. (Mendeley Data, DOI 10.17632/b6br4yk6r3.1; *J. Mater. Sci.* 2024, DOI 10.1007/s10853-023-09317-2) provides 215 public rows; only the published row numbers and values are reproduced, with no fabricated specimen or experimental-series identities.
+- The archival screen selected 215 rows from Bhat et al.'s larger public corpus (Mendeley Data, DOI 10.17632/b6br4yk6r3.1; companion article: *J. Mater. Sci.* 2024, DOI 10.1007/s10853-023-09317-2). Removing 49 exact redundant copies retains 166 Bhat-derived entries. Public-row mappings are supplied; original measurement, specimen and experimental-series identities and record-specific extraction types remain unavailable.
 - No private laboratory data, personal information or unpublished manuscript content is included.
 
 ## Versioned snapshots
 
 - Baseline development snapshot: tag `v0.9.0`, commit `d742856f90dce2435b2fe4e2499bd2d87dacb6c2`.
-- Cited baseline data/code release: tag `v1.0.0`, commit `31419e74f449230983e062a60491d1c379604544` (see GitHub Releases for the fixed archive and SHA-256 manifest).
-- README-corrected release: tag `v1.0.1` (see GitHub Releases); corrects the README model list, input description, licensing and recomputation text. The v1.0.0 tag and commit are not moved.
+- Scientific data/code baseline: commit `31419e74f449230983e062a60491d1c379604544`. Subsequent submission corrections update documentation, delivery checks and validation execution; the archived scientific data and results are retained.
+- Submission data/code release: [v1.0.0](https://github.com/Lyj69-cup/al7xxx-mechanical-property-prediction/releases/tag/v1.0.0). The tag was updated during preparation to include the submission corrections. The release description records its final full commit SHA; use that SHA with the release URL when citing the finalized snapshot.
 - Analysis code is released under the MIT License; third-party data retain their source licenses.
