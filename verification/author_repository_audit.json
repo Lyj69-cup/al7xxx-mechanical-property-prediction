@@ -1,0 +1,40 @@
+{
+  "audit_date": "2026-10-11",
+  "repository": "https://github.com/Lyj69-cup/al7xxx-mechanical-property-prediction",
+  "public_branches": [
+    "origin/HEAD -> origin/main",
+    "  origin/main"
+  ],
+  "commits": [
+    "d742856f90dce2435b2fe4e2499bd2d87dacb6c2 2026-10-10T22:36:29+08:00 Rebuild fully-traceable v4 dataset and leakage-free ensemble",
+    "f77dc1e801048e8be38c739906a209b519e396f7 2026-09-05T13:49:35+08:00 Initial commit: 7xxx aluminum alloy mechanical property prediction model"
+  ],
+  "history_scope": "All publicly advertised branches and their two reachable commits; current build_v4.py, both generations of datasets and lab_data_template.csv inspected. Private or local records were not accessed.",
+  "findings": [
+    "HEAD build_v4.py selects 215 rows by Zn >= 3 wt.% and Zn > Cu, preserving the raw CSV first-column index in localization.",
+    "The 1154-row upstream CSV contains chemistry, coarse processing, mechanical properties and inferred class, with no per-row original-paper, specimen or experimental-series identifiers.",
+    "The public lab_data_template.csv contains an EXAMPLE row and is not laboratory evidence.",
+    "The older 300-record dataset is a different dataset, with no Bhat public-row crosswalk; its source labels do not authenticate these 215 Bhat rows.",
+    "Repository ownership establishes control of the downstream collection, but does not reconstruct missing upstream experimental identities."
+  ],
+  "resolved": "All 215 public row mappings numerically checked, with 166 retained rows and 49 repeat representatives.",
+  "unresolved": "Original study/specimen/series identities, extraction types and independence for the Bhat secondary corpus.",
+  "primary_source_context": [
+    {
+      "url": "https://data.mendeley.com/datasets/b6br4yk6r3/1",
+      "doi": "10.17632/b6br4yk6r3.1",
+      "contributors": [
+        "Ninad Bhat",
+        "Amanda Barnard",
+        "Nick Birbilis"
+      ]
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s10853-023-09317-2",
+      "section": "Data set",
+      "finding": "1154 records assembled from literature and laboratory experiments; detailed thermomechanical temperatures/durations omitted. No per-row original source or specimen crosswalk found in the accessible article."
+    }
+  ],
+  "next_evidence": "Original collection ledger assigning each public row to its original publication/table/condition and real series, or laboratory record. Individual specimen IDs are required only if the source actually reports individual measurements; means must stay means.",
+  "local_followup": "See local_provenance_audit.json for the subsequently authorized read-only C:\\al7xxx inspection and new Bhat-free evidence."
+}

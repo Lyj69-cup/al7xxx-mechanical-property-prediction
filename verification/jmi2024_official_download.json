@@ -1,0 +1,12 @@
+{
+  "url": "https://oaepublishstorage.blob.core.windows.net/7d2f1c5e-01ec-445b-ab7a-8fe4f8a5c830/jmi4034-SupplementaryMaterials.zip",
+  "zip_sha256": "291d9fd0b9e881c3be0a67fe4bf87ed92d0508c09bc4485bd0a8dd1518b0e289",
+  "members": [
+    {
+      "member": "jmi4034-SupplementaryMaterials.xlsx",
+      "bytes": 40220,
+      "sha256": "f13204961f6c87db75895e7fe6e55429aaf17b519decbbe5e9f3e9d4cc7cd76a",
+      "identical_to_local": true
+    }
+  ]
+}

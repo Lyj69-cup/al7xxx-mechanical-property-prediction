@@ -1,0 +1,22 @@
+{
+  "primary_raw_records": 100,
+  "primary_records": 98,
+  "primary_excluded_repeat_summaries": 2,
+  "primary_publications": 10,
+  "primary_study_groups": 8,
+  "primary_labels": {
+    "YS_MPa": 44,
+    "UTS_MPa": 98,
+    "EL_pct": 86
+  },
+  "primary_bhat_rows": 0,
+  "jmi_published_records": 147,
+  "jmi_included_records": 135,
+  "jmi_included_study_groups": 44,
+  "jmi_labels": {
+    "YS(MPa)": 123,
+    "UTS(Mpa)": 134,
+    "EL(%)": 131
+  },
+  "scope": "Separate Bhat-free diagnostic cohorts; no records are appended to the 188-record archival benchmark. Primary cohort includes its 22 existing primary entries, so it is not an external validation of that benchmark."
+}

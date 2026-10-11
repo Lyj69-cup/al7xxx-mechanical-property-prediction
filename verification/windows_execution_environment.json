@@ -1,0 +1,20 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "packages": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "xgboost": "3.4.1",
+    "lightgbm": "4.7.0",
+    "matplotlib": "3.10.8",
+    "pillow": "12.3.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.6.0",
+    "narwhals": "2.27.1"
+  },
+  "fit_settings": "fixed all-model augmented series seed42; all nested LOSO; all added Wang2026 raw/augmented predictors",
+  "archived_environment": "results/v5/execution_environment.json",
+  "upstream_commit": "d742856f90dce2435b2fe4e2499bd2d87dacb6c2"
+}

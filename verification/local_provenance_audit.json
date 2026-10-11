@@ -1,0 +1,99 @@
+{
+  "audit_date": "2026-10-11",
+  "local_root": "C:\\al7xxx",
+  "scope": "Relevant datasets, acquisition scripts, fragment source notes, source workbooks, reanalysis backups and ZIP member lists; .venv/tools dependencies, executable pickles and model checkpoints were not executed. Read-only inspection of original local files.",
+  "files": [
+    {
+      "path": "C:\\al7xxx\\bhat_al_data.csv",
+      "bytes": 214665,
+      "sha256": "a3dd4f5091e485cf4db90308babcad38831174ddafbb6ae03df4ca3d4a647906"
+    },
+    {
+      "path": "C:\\al7xxx\\datasets_raw\\A\\bhat_supervised_al_data.csv",
+      "bytes": 214665,
+      "sha256": "a3dd4f5091e485cf4db90308babcad38831174ddafbb6ae03df4ca3d4a647906"
+    },
+    {
+      "path": "C:\\al7xxx\\datasets_raw\\A\\_map_bhat.py",
+      "bytes": 3178,
+      "sha256": "36523ca1d35904549ce12d3cb9fde504c0dbb2a95314964a70c2bdecdb9cf063"
+    },
+    {
+      "path": "C:\\al7xxx\\fragments\\frag_A_sources.md",
+      "bytes": 10055,
+      "sha256": "1f34eafb8aeec82dc75271d01ae66101d6ef878ef112ae42dcbcb4973175feca"
+    },
+    {
+      "path": "C:\\al7xxx\\user_revision\\JMEP_data_audit.xlsx",
+      "bytes": 79678,
+      "sha256": "378414b7969f0287647ee8cb1793d72974855c8e03450a7e68a8406aae8761c8"
+    },
+    {
+      "path": "C:\\al7xxx\\build_v3.py",
+      "bytes": 18060,
+      "sha256": "3af65391057c747af7c700e1ff541974b51f1b65323e94efcab881db17074278"
+    },
+    {
+      "path": "C:\\al7xxx\\build_v4.py",
+      "bytes": 7746,
+      "sha256": "fc6ee6d6a23d22d497cdb6b78fe32a7fe7d2a1816bcb9a0c3aeb73b96d43da49"
+    },
+    {
+      "path": "C:\\al7xxx\\source_record_mapping_v3.csv",
+      "bytes": 31380,
+      "sha256": "6d410d84915498e8e2e33e526664720e1722657a54392e723b74f43991b1083f"
+    },
+    {
+      "path": "C:\\al7xxx\\legacy_provenance.json",
+      "bytes": 14307,
+      "sha256": "50baef15ab3f35a67242fdecdcc1aa7bbd656a3dadfd6886a867e56a8e19dc42"
+    },
+    {
+      "path": "C:\\al7xxx\\final_submission_v4\\Supplementary_Table_S1_Data_Sources_v4.xlsx",
+      "bytes": 23750,
+      "sha256": "860c7fd2e873e7f4665d9d8c2361649fd04d8c975ac142772b015491a894cf34"
+    }
+  ],
+  "findings": [
+    "Local Bhat copies have the same 31-column schema with no original-paper, trial, specimen or real experimental-series column.",
+    "The local acquisition source notes explicitly state no per-row original citations for Bhat; the class-based 99-row selection does not recover original experimental identities.",
+    "The 300-row JMEP_data_audit record worksheet is an uncompleted template: all verified flags=no, zero populated original-publication, condition, locator or interpolation-parent IDs. It is not source certification.",
+    "Aggregate source_record_mapping_v3 and legacy source labels concern different historical corpora and do not authenticate individual Bhat records.",
+    "The historical v3 builder merges minimum/typical standard values with experimental/digitized summaries, restores assumed inputs, and deduplicates rounded target/chemistry combinations. Its 675-row matrix is not accepted wholesale as primary measurements.",
+    "Some PDF-named local files are not parseable PDFs. File names alone were not treated as original-paper evidence.",
+    "Five additionally verified primary journal articles provide 78 directly reported condition summaries and 192 target values; two repeated table appearances are conservatively excluded. Together with 22 existing checked primary summaries, the separate Bhat-free cohort has 98 records.",
+    "The official Yuan 2024 supplement is byte-identical to the local workbook; 135 chemistry-screened records have original-study citations and 44 canonical publication groups. Original specimen IDs and extraction types are not certified for this compilation."
+  ],
+  "audit_template_populated_counts": {
+    "source_publication_id": 0,
+    "condition_id": 0,
+    "table_figure_locator": 0,
+    "curve_id": 0,
+    "parent_left": 0,
+    "parent_right": 0
+  },
+  "resolved_by_new_evidence": "Known original-publication grouping and a primary-checked Bhat-free validation cohort, with literal original conditions and source locators. This permits source-resolved inference without attributing unknown Bhat identities.",
+  "not_recovered": "The original study, real experimental-series and individual-specimen identities of Bhat rows. Numerical matches, downstream repository ownership and account access are not substitutes for the upstream collection ledger.",
+  "new_cohort_counts": {
+    "primary_raw_records": 100,
+    "primary_records": 98,
+    "primary_excluded_repeat_summaries": 2,
+    "primary_publications": 10,
+    "primary_study_groups": 8,
+    "primary_labels": {
+      "YS_MPa": 44,
+      "UTS_MPa": 98,
+      "EL_pct": 86
+    },
+    "primary_bhat_rows": 0,
+    "jmi_published_records": 147,
+    "jmi_included_records": 135,
+    "jmi_included_study_groups": 44,
+    "jmi_labels": {
+      "YS(MPa)": 123,
+      "UTS(Mpa)": 134,
+      "EL(%)": 131
+    },
+    "scope": "Separate Bhat-free diagnostic cohorts; no records are appended to the 188-record archival benchmark. Primary cohort includes its 22 existing primary entries, so it is not an external validation of that benchmark."
+  }
+}

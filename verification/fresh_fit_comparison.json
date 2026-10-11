@@ -1,0 +1,53 @@
+{
+  "series_seed42_prediction_rows": 5522,
+  "maximum_prediction_differences_by_model": {
+    "Dummy": 1.7763568394002505e-15,
+    "ET": 5.684341886080802e-14,
+    "Fusion": 3.841639200846373,
+    "GBRT": 5.684341886080802e-14,
+    "LGB": 5.684341886080802e-14,
+    "Linear": 6.471964297816157e-09,
+    "RF": 5.684341886080802e-14,
+    "Ridge": 1.887201506178826e-11,
+    "SVR": 5.718447937397286e-11,
+    "Tree": 5.684341886080802e-14,
+    "XGB": 23.049835205078097
+  },
+  "nested_loso_refit": [
+    {
+      "target": "EL_pct",
+      "max_prediction_difference": 9.947598300641403e-14,
+      "recomputed": {
+        "n": 161,
+        "R2": -51.50917243357282,
+        "RMSE": 27.05416147203019,
+        "MAE": 10.190071209475652,
+        "bias_pred_minus_true": -4.678454022373649
+      }
+    },
+    {
+      "target": "UTS_MPa",
+      "max_prediction_difference": 5.684341886080802e-14,
+      "recomputed": {
+        "n": 183,
+        "R2": 0.2746086492201084,
+        "RMSE": 91.77756554212442,
+        "MAE": 69.74682961228335,
+        "bias_pred_minus_true": -17.72090710070381
+      }
+    },
+    {
+      "target": "YS_MPa",
+      "max_prediction_difference": 4.547473508864641e-13,
+      "recomputed": {
+        "n": 158,
+        "R2": -14.292620995090331,
+        "RMSE": 476.53791456796546,
+        "MAE": 191.85593049663922,
+        "bias_pred_minus_true": 51.73432559804579
+      }
+    }
+  ],
+  "seconds": 194.64254212379456,
+  "scope": "Full fixed augmented series repeat and nested collection transfer refitted; other archived repeats checked by metric recovery. Compiled-platform differences are reported, not concealed."
+}

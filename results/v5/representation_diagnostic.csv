@@ -1,0 +1,4 @@
+target,n_condition_direction_means,n_encoded_inputs,best_constant_mean,minimum_in_sample_RMSE_for_this_encoding,range,meaning
+YS_MPa,6,1,502.8333333333333,29.162856894039415,75.0,Representation diagnostic only. Not a population accuracy ceiling; fitted oracle uses these labels and is never presented as a predictor.
+UTS_MPa,6,1,556.8333333333334,4.913134324327892,15.0,Representation diagnostic only. Not a population accuracy ceiling; fitted oracle uses these labels and is never presented as a predictor.
+EL_pct,6,1,12.450000000000001,1.2971121771072847,4.1,Representation diagnostic only. Not a population accuracy ceiling; fitted oracle uses these labels and is never presented as a predictor.

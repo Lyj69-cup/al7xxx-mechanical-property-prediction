@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "prediction_rows": 149072,
+  "metric_rows": 1452,
+  "fold_target_rows": 888,
+  "primary_n": 98,
+  "primary_groups": 8,
+  "jmi_n": 135,
+  "jmi_groups": 44,
+  "maximum_six_component_average_difference": 2.2737367544323206e-13,
+  "checks": [
+    "All recorded target values match their supplied published-source cohort",
+    "Every partition predicts every available target once per model",
+    "No original-publication group overlaps a grouped/holdout training and test partition",
+    "All ten comparators and the fixed average retain finite predictions, including failures",
+    "All R2/RMSE/MAE and reported mean/sample SD recover from unrounded predictions"
+  ],
+  "scope": "Numeric and source-partition consistency; does not certify unreported Bhat or compilation experiment identities."
+}

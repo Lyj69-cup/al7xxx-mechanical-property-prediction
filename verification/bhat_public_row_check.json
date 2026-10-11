@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "public_dataset_rows": 1154,
+  "selected_archive_rows": 215,
+  "retained_secondary_rows": 166,
+  "excluded_exact_repeat_rows": 49,
+  "verified": "Archived public row identities, original available compositions, target labels and repeat representatives",
+  "not_verified": "Original study, specimen or real experimental series identities; record-specific extraction type or independence",
+  "composition_conversion": "Fractions in the upstream CSV multiplied by 100 and rounded to four decimals as in upstream build_v4.py"
+}

@@ -1,0 +1,7 @@
+source_id,records,locator,checked_facts,qualification
+XU2015,XU15-01/XU15-02,Table 1 p3020; Methods p3020; Tables 3 and 5 pp3023-3024,720.5/699.1 MPa; EL5.0/4.2; 2% compression; 450/2+460/2+470/2; 121/24,Primary PDF visually checked; no target correction
+XU2016,XU16-01/XU16-02,Table 1 p508; Methods pp507-508; Table 2 p510; Table 5 p512,YS667.8/682.3; UTS693.6/738.6; EL4.0/5.0; 2-3% deformation,"460 C/2h middle solution stage added to context; 2.5% is midpoint, not measured exact value"
+XU2018,XU18-01/XU18-02,Table 4; DOI10.11973/jxgccl201808005,Checked in preceding audited revision,Original page range24-28; source route retained
+LI2020,LI-001 through LI-012,Table 1 and Methods; DOI10.1038/s43246-020-00074-2,"Nominal compositions, Ce and three RRA holds",Primary checked; UTS-only summaries
+PMC9571267,PMC-01 through PMC-04,Methods and Section3.3; DOI10.3390/ma15196955,Final hold165 C/4h; three forging temperatures archived,Primary checked; manufacturing temperature not encoded in flat45 inputs
+BHAT2023,166 retained BH IDs,Mendeley DOI10.17632/b6br4yk6r3.1; raw row indices,Secondary public corpus; nominal processing class only,Original studies/specimen IDs and extraction types unavailable; no invented assignment

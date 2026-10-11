@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "predictions": 2508,
+  "base_columns": 45,
+  "enriched_columns": 53,
+  "aliased_base_groups": 11,
+  "aliased_base_records": 24,
+  "groups_separated_by_reported_context": 11,
+  "identical_partitions_to_base": true,
+  "checks": [
+    "All observed labels recover from the primary cohort",
+    "All R2/MAE/RMSE recover from new predictions",
+    "Train/test IDs match the base ET target masks and partitions",
+    "Known-publication separation is preserved",
+    "All extra fields are source-reported context; no target-derived columns"
+  ],
+  "scope": "Descriptive sufficiency comparison, not causal inference or independent experiments"
+}

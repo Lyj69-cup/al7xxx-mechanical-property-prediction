@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "new_raw_records_checked": 78,
+  "new_reported_target_values_checked": 192,
+  "retained_new_records": 76,
+  "old_primary_records": 22,
+  "old_primary_evidence": "Existing checked primary ledgers and published-source review; not reclassified as new external observations",
+  "source_sha256": {
+    "C:\\Users\\小刘\\Desktop\\研究方向\\机器学习\\jmep\\返修\\analysis_work\\sources\\tai2022.pdf": "d041592367aa77d1d3b02444035ce7333035c554de66a35d0de2070c3dca4f82",
+    "C:\\Users\\小刘\\Desktop\\研究方向\\机器学习\\jmep\\返修\\analysis_work\\sources\\chen2017.pdf": "6b70e54a4728a7f0e37d93296fd1b84f0db4b0b0af6bd3f807d25389b7b66ea3",
+    "C:\\Users\\小刘\\Desktop\\研究方向\\机器学习\\jmep\\返修\\analysis_work\\sources\\space2024.pdf": "d2d1ea4198d4be0b72cf88f11bcf8fd16afd8f663853bb2321156f58bceff02a",
+    "C:\\Users\\小刘\\Desktop\\研究方向\\机器学习\\jmep\\返修\\analysis_work\\sources\\orlowska2022.xml": "4c4ebaa86ce0ba1e41de8f7f27f6de0ef4ad1d203103f7ede0e162b07d032d65",
+    "C:\\al7xxx\\pdfs\\B\\imr_7055_Sc.pdf": "539a5f60cd0926f027ca047970d2003a9b5e3bad6588117112ee858e1202d390"
+  },
+  "qualifications": [
+    "Tai Table 2 NA-7d/2 h EL=17.1%, text=17.3%; table preserved",
+    "Tai specimen count is at least three, not exactly three",
+    "Chen three repetitions refer to impact tests; no tensile repeat count invented",
+    "Two repeated Bi Table 3/4 condition summaries removed conservatively",
+    "Absent chemistry/processing remains unknown, except nominal absence of intentional Sc in Liu base alloy",
+    "No original individual specimen IDs fabricated"
+  ]
+}

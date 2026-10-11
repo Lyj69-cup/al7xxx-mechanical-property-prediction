@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "records": 188,
+  "series_proxy_groups": 49,
+  "primary_checked_records": 22,
+  "primary_label_counts": {
+    "YS": 8,
+    "UTS": 22,
+    "EL": 10
+  },
+  "external_condition_direction_means": 6,
+  "nested_outer_target_fits": 90,
+  "nested_candidate_scores": 2160,
+  "maximum_average_difference": 2.2737367544323206e-13,
+  "checks": [
+    "45-column inputs and observed labels unchanged",
+    "group separation in outer and inner series partitions",
+    "source separation in nested LOSO",
+    "nested inner folds cover only outer training observations",
+    "24 candidates per outer fold and minimum inner MAE selection",
+    "prediction coverage, uniqueness and metric recovery",
+    "strict six-component averaging",
+    "all six external challenge means collapse to one vector",
+    "external challenge IDs excluded from fitting and selection",
+    "matched multi-output comparison uses 140 complete records"
+  ],
+  "scope": "Computational integrity and primary article extraction; does not authenticate original measurement IDs or independence of the secondary Bhat corpus."
+}

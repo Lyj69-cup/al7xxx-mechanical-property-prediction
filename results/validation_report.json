@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "records": 188,
+  "target_counts": {
+    "YS_MPa": 158,
+    "UTS_MPa": 183,
+    "EL_pct": 161
+  },
+  "excluded_exact_raw_repeats": 49,
+  "prediction_rows": 121484,
+  "target_specific_folds": 330,
+  "maximum_fusion_mean_difference": 2.2737367544323206e-13,
+  "checks": [
+    "retained labels unchanged",
+    "exact full raw duplicates",
+    "prediction coverage and uniqueness",
+    "six-component mean",
+    "no train/test record overlap",
+    "no source overlap in LOSO",
+    "identical encoded inputs grouped together",
+    "metrics recovered from predictions",
+    "constant-target R2 undefined",
+    "malformed/unsafe prediction inputs rejected",
+    "unknown input fields retained as missing",
+    "20 family permutations across 5 held-out folds"
+  ],
+  "scope": "Computational and archive integrity only; primary article checks are documented separately. Does not authenticate unknown original Bhat experiment identities."
+}

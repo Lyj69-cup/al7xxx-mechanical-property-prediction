@@ -1,0 +1,5 @@
+record_id,source_id,grain_size_um,low_angle_boundary_fraction,XRD_dislocation_density_m2,locator,measurement_state,YS_MPa,UTS_MPa,EL_pct
+XU15-01,XU2015,11.14,0.662,79680000000000.0,EBSDTable3 p3023; XRDTable2 p3022,Final solid-solution+T652,,720.5,5.0
+XU15-02,XU2015,5.25,0.764,128330000000000.0,EBSDTable3 p3023; XRDTable2 p3022,Final pre-recovery+solid-solution+T652,,699.1,4.2
+XU16-01,XU2016,4.748,0.536,19700000000000.0,EBSDTable2 p510; XRDTable3 p512,Final T6,667.8,693.6,4.0
+XU16-02,XU2016,11.144,0.662,115600000000000.0,EBSDTable2 p510; XRDTable3 p512,Final pre-deformation+T6,682.3,738.6,5.0

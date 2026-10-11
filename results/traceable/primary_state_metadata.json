@@ -1,0 +1,28 @@
+{
+  "model": "fixed ET",
+  "base_inputs": 45,
+  "enriched_inputs": 53,
+  "extra_fields": [
+    "prior_natural_aging_days",
+    "reported_HE_strain",
+    "reported_sheet_thickness_mm",
+    "first_solution_cycle_hold_C",
+    "first_solution_cycle_hold_h",
+    "solution_heating_rate_C_per_h",
+    "initial_forging_temp_C",
+    "grain_coarsening_resolution"
+  ],
+  "not_observed": {
+    "prior_natural_aging_days": 86,
+    "reported_HE_strain": 91,
+    "reported_sheet_thickness_mm": 39,
+    "first_solution_cycle_hold_C": 4,
+    "first_solution_cycle_hold_h": 4,
+    "solution_heating_rate_C_per_h": 96,
+    "initial_forging_temp_C": 95,
+    "grain_coarsening_resolution": 91
+  },
+  "seconds": 63.5,
+  "purpose": "Matched descriptive feature-sufficiency check, not causal coefficients or universal engineering validation",
+  "independent_data": false
+}

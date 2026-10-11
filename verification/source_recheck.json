@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-11",
+  "primary_sources": [
+    {
+      "source_id": "XU2015",
+      "download_url": "http://www.ysxbcn.com/down/2015/11_cn/08-p3019-33029.pdf",
+      "sha256_downloaded_source": "cab9d05b40eb37299219bc4e82cbb37a07eebbf9e416eb2ea6a5f66f66d28f0b",
+      "bytes": 3431957,
+      "locator": "Table 1 p3020; Methods p3020; Tables 3 and 5 pp3023-3024",
+      "check": "Two UTS/EL means and EBSD/XRD summaries checked; citation ends3025 while downloaded PDF includes3026; this discrepancy is retained in source evidence."
+    },
+    {
+      "source_id": "XU2016",
+      "download_url": "http://www.ysxbcn.com/down/2016/03_cn/04-p0507-33268.pdf",
+      "sha256_downloaded_source": "5278c7dda9b2a8083d99b37db9e54405dbf0da385884df6446cc62a0f9963c8e",
+      "bytes": 5347706,
+      "locator": "Table 1 p508; EBSD Table2 p510; XRD Table3 p512; tensile Table5 p512",
+      "check": "Two YS/UTS/EL summaries checked; 460 C/2 h intermediate solution restored as context; reported2-3% kept with nominal2.5% input; density uses table10^14 not abstract typo10^-14."
+    },
+    {
+      "source_id": "XU2018",
+      "download_url": "https://jxgccl.mat-test.com/cn/article/pdf/preview/10.11973/jxgccl201808005.pdf",
+      "sha256_downloaded_source": "7a34e963cae060b5d1cc4bbe61a59306a186aae831cdce1ccdf81a99aaade69e",
+      "bytes": 8593555,
+      "locator": "Methods and tensile tables; journal42(8),24-28",
+      "check": "Two article summaries and pages checked against publisher; workbook page end24-27 corrected to24-28."
+    },
+    {
+      "source_id": "LI2020",
+      "download_url": "https://www.nature.com/articles/s43246-020-00074-2",
+      "sha256_downloaded_source": "dbca2a81d0b330842913e4f636434f7d05224de10869263505a3cea67fb0298b",
+      "bytes": 408788,
+      "locator": "Chemistry and processing tables/Methods",
+      "check": "Twelve UTS summaries; RRA holds and nominal Ce retained."
+    },
+    {
+      "source_id": "ZHANG2022",
+      "download_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9571267/fullTextXML",
+      "sha256_downloaded_source": "e0de35c964b34c284adf7ae2ff094937705aad2bc916c62534c939cad622e08d",
+      "bytes": 72077,
+      "locator": "Chemistry, tensile data and Methods; DOI10.3390/ma15196955",
+      "check": "Four summaries; hot-deformation strain is manufacturing context, not assumed pre-aging percent."
+    },
+    {
+      "source_id": "YIN2025",
+      "download_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11766987/fullTextXML",
+      "sha256_downloaded_source": "c87de4dd4fa0bb8729a34a1d166a623f4f551d81840b49b6911244db522b62b6",
+      "bytes": 141819,
+      "locator": "Table1 and Methods; DOI10.3390/ma18020391",
+      "check": "All six forging means/three targets checked, excluded from training; six means map to one vector."
+    },
+    {
+      "source_id": "WANG2026",
+      "download_url": "https://mdpi-res.com/d_attachment/metals/metals-16-00906/article_deploy/metals-16-00906.pdf",
+      "sha256_downloaded_source": "3dab059398492069dc1f8c33f094ae5c01422092e9049f34ce669c2a2050cf4c",
+      "bytes": 18757327,
+      "locator": "Table1 p3, Table2 pp5-6, Methods p3; DOI10.3390/met16080906",
+      "check": "All17YS/UTS condition/direction means and102individual source values transcribed; noEL labels. Three45-degreeYS mean discrepancies2/3MPa retained; missing6h/24h45/90cells not filled."
+    }
+  ],
+  "scope": "Source numerical extraction and context checked; no claim to independently repeat the experiments or recover unknown secondary-corpus specimen IDs. Source PDFs/HTML/XML are held locally for checking, not redistributed.",
+  "dataset_source": "https://doi.org/10.17632/b6br4yk6r3.1",
+  "secondary_identity_limitation": "Original publication/specimen/experimental-series IDs remain unavailable for the selected Bhat entries."
+}

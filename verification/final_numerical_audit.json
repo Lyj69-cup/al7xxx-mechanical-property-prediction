@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "training_records": 188,
+  "training_labels": [
+    158,
+    183,
+    161
+  ],
+  "external_yin2025_means": 6,
+  "external_wang2026_means": 17,
+  "wang2026_individual_source_values": 102,
+  "wang2026_unique_encoded_vectors": 7,
+  "wang2026_EL_labels": 0,
+  "checks": [
+    "All archived metrics and fold isolation audited",
+    "Added means and all source replicates retained; missing cells stay missing",
+    "All 748 added fixed predictions finite and matched to published targets",
+    "No added challenge ID in training cohort",
+    "Six-component averaging and external metrics recovered",
+    "Nine corrected paired statistics recomputed from predictions"
+  ],
+  "scope": "Computational integrity; no certification of unknown upstream experiments, causal mechanisms, or engineering qualification"
+}
