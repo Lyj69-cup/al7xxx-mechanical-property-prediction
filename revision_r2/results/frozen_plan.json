@@ -1,0 +1,87 @@
+{
+  "analysis_date": "2026-11-05",
+  "status": "metadata_rules_frozen_before_new_fits",
+  "retrospective": true,
+  "preregistered": false,
+  "input_sha256": {
+    "data/primary_traceable.csv": "215822706b8b1c9d712723c36156c0db46c899f55386806104a127366d038978",
+    "data/primary_model_matrix_45.csv": "d10cabb6faa9eef8358944a9231e5d0df01d0e7f20aeb1f94df7aa385231e2f3",
+    "data/primary_model_matrix_53.csv": "b6da8b884e4cfe1d6999ab1cf8750fd1a087eab573cbfedd71bd02d0741de401",
+    "data/primary_state_enriched.csv": "5438e1fc873325462ce5fae689edfbb5298f1267936c3392fb533131ddac3b34",
+    "supplementary/primary_traceable_evidence.csv": "a53762f44d3eb63b07b051435f64ecaa76a84d7ac8d33c429882c58b468748b0",
+    "src/primary_state_sensitivity.py": "3edaa9e4036fae4f644ee3829c4b4f53724a3cb4090a139d492bc447ef2aa37c"
+  },
+  "assignment_sha256": "d38ba427675c908a607321c3e9f7a3d812788c2bcdf46ada4c79cf413d02d390",
+  "primary_records": 98,
+  "primary_publication_line_groups": 8,
+  "designation_counts": {
+    "7A09": 42,
+    "7075": 18,
+    "7A04": 10,
+    "7055_based": 6
+  },
+  "designation_excluded": 22,
+  "aging_route_counts": {
+    "two_stage_artificial": 43,
+    "one_stage_artificial": 33,
+    "RRA": 12,
+    "natural_only": 3,
+    "annealed": 2,
+    "as_quenched": 1
+  },
+  "aging_route_excluded": 4,
+  "rules": {
+    "designation": "Authentic reported title/condition family only; 7055-based includes explicitly Sc-modified variants. All 22 unassigned rows excluded from BOTH training and evaluation.",
+    "route": "Broad explicitly reported aging-route architecture; unknown/as-received histories excluded from BOTH training and evaluation. Not exact schedule equivalence, not certification of every earlier hold.",
+    "source": "Existing study_group; all three Xu articles linked as one research line.",
+    "exclusion": "BI2024_7A09 largest source (42 records) excluded from BOTH training and evaluation before rebuilding seven remaining source holdouts."
+  },
+  "analyses": [
+    [
+      "primary98",
+      "source_loso",
+      "study_group"
+    ],
+    [
+      "designation76",
+      "designation_loso",
+      "reported_designation_family"
+    ],
+    [
+      "designation76",
+      "source_loso",
+      "study_group"
+    ],
+    [
+      "aging_route94",
+      "aging_route_loso",
+      "reported_aging_route"
+    ],
+    [
+      "aging_route94",
+      "source_loso",
+      "study_group"
+    ],
+    [
+      "without_dominant56",
+      "source_loso",
+      "study_group"
+    ]
+  ],
+  "models": [
+    "ET_raw32",
+    "ET_augmented45",
+    "training_mean"
+  ],
+  "ET_parameters": {
+    "n_estimators": 500,
+    "max_features": 0.5,
+    "random_state": 42,
+    "n_jobs": 1
+  },
+  "model_selection": false,
+  "preprocessing": "Target-specific training-only median imputation, all-training-missing fields constant0; input and target training-only standardization. No missing-label imputation.",
+  "protocol_scope": "Source-group holdouts keep study groups disjoint. Route/designation holdouts are distinct estimands and do not additionally enforce source disjointness. Matched source-holdout references use identical restricted row populations.",
+  "collision_scope": "Exact equality of all numeric un-imputed columns including the missing-value pattern. Group mean oracle uses observed labels only for post hoc empirical SSE diagnostics. It is not a fitted predictor, population ceiling, or estimate of a causal omitted-variable effect.",
+  "uncertainty": "One deterministic complete set of leave-group-out predictions per protocol. No repeated-seed SD, significance test or independent-study confidence interval is inferred. Per-group MAE and pooled/macro metrics are reported; small/constant groups have undefined R2."
+}

@@ -1,0 +1,7 @@
+representation,target,n_inputs,unique_unimputed_vectors,n_collision_groups,n_records_in_collision_groups,n_total_labels,n_labels_in_collision_groups,n_collision_groups_with_2plus_labels,n_collision_groups_with_nonzero_label_span,oracle_min_SSE_all_labels,oracle_min_RMSE_all_labels,oracle_min_RMSE_collision_labels,maximum_collision_label_span
+augmented45,YS_MPa,45,85,11,24,44,24,11,11,13073.18526666667,17.237106687889852,23.339152786204085,145.0
+augmented45,UTS_MPa,45,85,11,24,98,24,11,11,8410.233333333334,9.263838701261653,18.71967918765941,100.0
+augmented45,EL_pct,45,85,11,24,86,24,11,11,105.49953333333329,1.1075823940862919,2.096619633812697,11.499999999999998
+reported_state53,YS_MPa,53,98,0,0,44,0,0,0,0.0,0.0,,0.0
+reported_state53,UTS_MPa,53,98,0,0,98,0,0,0,0.0,0.0,,0.0
+reported_state53,EL_pct,53,98,0,0,86,0,0,0,0.0,0.0,,0.0

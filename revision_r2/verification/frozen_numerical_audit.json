@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "return_code": 0,
+  "command": "python src/reproduce_final.py (default frozen-ledger audit, task-owned temporary copy)",
+  "source_before": {
+    "files": 132,
+    "mismatches": []
+  },
+  "source_after": {
+    "files": 132,
+    "mismatches": []
+  },
+  "source_changed": false,
+  "refitting_performed": false,
+  "log": "frozen_numerical_audit.log",
+  "scientific_scope": "Recomputes numerical ledger checks, fold isolation, property transcription, fixed averaging and 45/53 state comparisons. Does not refit learners or reconstruct missing experimental identities."
+}

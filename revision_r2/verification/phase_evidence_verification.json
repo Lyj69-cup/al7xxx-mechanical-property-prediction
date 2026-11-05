@@ -1,0 +1,83 @@
+{
+  "records": 8,
+  "pairs": 4,
+  "unique_existing_primary_sources": 2,
+  "phase_features_added_to_model": 0,
+  "new_property_labels_generated": 0,
+  "new_experiments": 0,
+  "new_models_fitted": 0,
+  "all_pairs_collide_in_45": true,
+  "all_pairs_separate_in_53": true,
+  "phase_particle_counts_inferred": false,
+  "property_values_unchanged": true,
+  "input_files": [
+    {
+      "path": "data/primary_traceable.csv",
+      "sha256": "215822706b8b1c9d712723c36156c0db46c899f55386806104a127366d038978"
+    },
+    {
+      "path": "data/primary_state_enriched.csv",
+      "sha256": "5438e1fc873325462ce5fae689edfbb5298f1267936c3392fb533131ddac3b34"
+    },
+    {
+      "path": "data/primary_model_matrix_45.csv",
+      "sha256": "d10cabb6faa9eef8358944a9231e5d0df01d0e7f20aeb1f94df7aa385231e2f3"
+    },
+    {
+      "path": "data/primary_model_matrix_53.csv",
+      "sha256": "b6da8b884e4cfe1d6999ab1cf8750fd1a087eab573cbfedd71bd02d0741de401"
+    }
+  ],
+  "original_source_checks": {
+    "status": "PASS",
+    "checks": {
+      "tai_24h_tensile_row": true,
+      "tai_phase_length_no_NA": true,
+      "tai_phase_length_7d_NA": true,
+      "tai_eta2_at_24h": true,
+      "tai_tensile_repeat_lower_bound": true,
+      "tai_tensile_spread_is_SD": true,
+      "tai_GP_not_confirmed": true,
+      "orlowska_ORLOWSKA2022_HE-018_YS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-018_UTS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-018_EL_pct_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-019_YS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-019_UTS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-019_EL_pct_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-020_YS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-020_UTS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-020_EL_pct_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-021_YS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-021_UTS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-021_EL_pct_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-022_YS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-022_UTS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-022_EL_pct_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-023_YS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-023_UTS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-023_EL_pct_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-024_YS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-024_UTS_MPa_mean_spread": true,
+      "orlowska_ORLOWSKA2022_HE-024_EL_pct_mean_spread": true,
+      "orlowska_three_tensile_specimens": true,
+      "orlowska_more_precipitate_growth": true,
+      "orlowska_PFZ_120C": true,
+      "orlowska_30nm_is_RRA_context": true
+    },
+    "original_source_files": [
+      {
+        "path": "tai2022.pdf",
+        "sha256": "d041592367aa77d1d3b02444035ce7333035c554de66a35d0de2070c3dca4f82",
+        "doi": "10.3390/met12101766",
+        "distribution": "Original full text not redistributed; obtain lawfully from the stated DOI."
+      },
+      {
+        "path": "orlowska2022.xml",
+        "sha256": "4c4ebaa86ce0ba1e41de8f7f27f6de0ef4ad1d203103f7ede0e162b07d032d65",
+        "doi": "10.3390/ma15134577",
+        "distribution": "Original full text not redistributed; obtain lawfully from the stated DOI."
+      }
+    ],
+    "method": "Literal numeric/locator checks supplement close reading; source images were not remeasured or independently reidentified."
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "checks": {
+    "all_3534_predictions_reconciled": true,
+    "checked_model_group_memberships": 318,
+    "checked_training_mean_groups": 106,
+    "all_six_population_protocol_pairs_have_complete_target_coverage": true,
+    "labels_match_original_data": true,
+    "no_training_testing_group_overlap": true,
+    "no_label_imputation": true,
+    "source_inputs_unchanged": {
+      "data/primary_traceable.csv": true,
+      "data/primary_model_matrix_45.csv": true,
+      "data/primary_model_matrix_53.csv": true,
+      "data/primary_state_enriched.csv": true,
+      "supplementary/primary_traceable_evidence.csv": true,
+      "src/primary_state_sensitivity.py": true
+    },
+    "full98_archived_ET_reference_max_metric_difference": 0.0,
+    "collision_SSE_independently_recomputed": [
+      {
+        "inputs": 45,
+        "target": "YS_MPa",
+        "min_SSE": 13073.18526666667
+      },
+      {
+        "inputs": 45,
+        "target": "UTS_MPa",
+        "min_SSE": 8410.233333333334
+      },
+      {
+        "inputs": 45,
+        "target": "EL_pct",
+        "min_SSE": 105.49953333333329
+      },
+      {
+        "inputs": 53,
+        "target": "YS_MPa",
+        "min_SSE": 0
+      },
+      {
+        "inputs": 53,
+        "target": "UTS_MPa",
+        "min_SSE": 0
+      },
+      {
+        "inputs": 53,
+        "target": "EL_pct",
+        "min_SSE": 0
+      }
+    ],
+    "single_label_group_R2_correctly_undefined": true,
+    "all_adverse_raw_and_augmented_results_retained": true
+  }
+}

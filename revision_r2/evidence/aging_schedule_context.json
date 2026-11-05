@@ -1,0 +1,37 @@
+[
+  {
+    "prior_natural_aging_days": 0,
+    "artificial_aging_temperature_C": 120,
+    "tested_artificial_aging_times_h": [
+      0.0,
+      2.0,
+      10.0,
+      16.0,
+      24.0
+    ],
+    "maximum_reported_YS_MPa_among_tested_times": 545.0,
+    "tested_times_attaining_maximum_h": [
+      24.0
+    ],
+    "first_tested_time_attaining_maximum_h": 24.0,
+    "qualification": "Discrete tested condition means, not a continuous optimum, new kinetic fit, or significance test; source Table 2 and Conclusions p.8"
+  },
+  {
+    "prior_natural_aging_days": 7,
+    "artificial_aging_temperature_C": 120,
+    "tested_artificial_aging_times_h": [
+      0.0,
+      2.0,
+      10.0,
+      16.0,
+      24.0
+    ],
+    "maximum_reported_YS_MPa_among_tested_times": 539.0,
+    "tested_times_attaining_maximum_h": [
+      16.0,
+      24.0
+    ],
+    "first_tested_time_attaining_maximum_h": 16.0,
+    "qualification": "Discrete tested condition means, not a continuous optimum, new kinetic fit, or significance test; source Table 2 and Conclusions p.8"
+  }
+]

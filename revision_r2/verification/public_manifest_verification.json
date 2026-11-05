@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "public_commit": "c8d0da322c3d10ea2775ee26b31f4ca4db532798",
+  "source_url": "https://raw.githubusercontent.com/Lyj69-cup/al7xxx-mechanical-property-prediction/c8d0da322c3d10ea2775ee26b31f4ca4db532798/SHA256SUMS.txt",
+  "public_manifest_sha256": "000d056aebdf334f6583a8526d516beb81a37045d90df3800a01ac2805c9636d",
+  "local_manifest_sha256": "000d056aebdf334f6583a8526d516beb81a37045d90df3800a01ac2805c9636d",
+  "byte_identical": true,
+  "retrieval_method": "GitHub connector, public repository read",
+  "scope": "Published commit manifest matches local manifest; local distributed132files checked against it."
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "baseline_tag": "v1.0.0",
+  "baseline_commit": "c8d0da322c3d10ea2775ee26b31f4ca4db532798",
+  "baseline_manifest_sha256": "000d056aebdf334f6583a8526d516beb81a37045d90df3800a01ac2805c9636d",
+  "baseline_manifested_files": 132,
+  "baseline_files_including_original_manifest": 133,
+  "all_baseline_files_preserved_byte_for_byte": true,
+  "addition_directory": "revision_r2",
+  "new_version": "v1.1.0",
+  "doi_status": "NOT_ASSIGNED_NOT_PUBLISHED",
+  "phase_sources": "Original source-file hashes and condition-level checks are included; article full texts are not redistributed."
+}

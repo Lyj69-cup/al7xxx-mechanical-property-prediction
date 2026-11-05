@@ -1,0 +1,21 @@
+{
+  "seconds": 70.6099999999999,
+  "predictions": 3534,
+  "fitted_target_group_representations": 318,
+  "skipped_target_groups": 8,
+  "dependencies": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.17.0"
+  },
+  "input_sha256_recheck": {
+    "data/primary_traceable.csv": true,
+    "data/primary_model_matrix_45.csv": true,
+    "data/primary_model_matrix_53.csv": true,
+    "data/primary_state_enriched.csv": true,
+    "supplementary/primary_traceable_evidence.csv": true,
+    "src/primary_state_sensitivity.py": true
+  },
+  "status": "COMPLETE"
+}
